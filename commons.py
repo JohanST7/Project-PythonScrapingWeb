@@ -1,3 +1,5 @@
+from enum import Enum
+
 #############
 # CVE Class #
 #########################################################################
@@ -28,3 +30,17 @@ class CVE:
         self.confidentiality = confidentiality
         self.integrity = integrity
         self.availability = availability
+
+class CVE_FIELDS(Enum):
+    CVE_ID = "id"
+    vType = "vulnerability_type"
+    pDate = "publish_date"
+    uDate = "update_date"
+    score = "score"
+    gainedAccessLevel = "gained_access_level"
+    access = "access"
+    complexity = "complexity"
+    authentication = "authentication"
+    confidentiality = "confidentiality"
+    integrity = "integrity"
+    availability = "availability"
