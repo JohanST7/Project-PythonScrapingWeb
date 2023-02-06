@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 
 from commons import CVE
 from commons import CVE_FIELDS
@@ -23,6 +24,7 @@ def parse(Vendor, Product, CVES):
         os.makedirs(productDirPath)
     
     xmlOutput(Product, CVES)
+    jsonOutput(Product, CVES)
 
 def getChildWithText(name, text):
     child = etree.Element(name)
@@ -54,6 +56,30 @@ def xmlOutput(Product, CVES):
         cveList.append(cveNode)
     root.append(cveList)
     write(os.path.join(productDirPath, Product+".xml"), etree.tostring(root, encoding="unicode", pretty_print=True))
+
+def jsonOutput(Product, CVES):
+    root = {}
+    product = {}
+    CVEList = {}
+    for cve in CVES:
+        cveNode = {}
+        cveNode[CVE_FIELDS.CVE_ID.value] = cve.CVE_ID
+        cveNode[CVE_FIELDS.vType.value] = cve.vType
+        cveNode[CVE_FIELDS.pDate.value] = cve.pDate
+        cveNode[CVE_FIELDS.uDate.value] = cve.uDate
+        cveNode[CVE_FIELDS.score.value] = cve.score
+        cveNode[CVE_FIELDS.gainedAccessLevel.value] = cve.gainedAccessLevel
+        cveNode[CVE_FIELDS.access.value] = cve.access
+        cveNode[CVE_FIELDS.complexity.value] = cve.complexity
+        cveNode[CVE_FIELDS.authentication.value] = cve.authentication
+        cveNode[CVE_FIELDS.confidentiality.value] = cve.confidentiality
+        cveNode[CVE_FIELDS.integrity.value] = cve.integrity
+        cveNode[CVE_FIELDS.availability.value] = cve.availability
+        CVEList[cve.CVE_ID] = cveNode
+    product["name"] = Product
+    root["product"] = product
+    root["cve-list"] = CVEList
+    write(os.path.join(productDirPath, Product+".json"), json.dumps(root, indent=4))
 
 
 CVEs = []
