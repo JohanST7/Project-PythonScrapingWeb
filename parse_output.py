@@ -8,10 +8,6 @@ from lxml import etree
 
 productDirPath = ""
 
-def write(file_path, txt):
-    with open(file_path, 'w+') as f:
-        f.write(txt)
-
 def parse(Vendor, Product, CVES):
     #Create Vendor directory
     vendorDirPath = os.path.join(os.getcwd(), Vendor)
@@ -23,9 +19,20 @@ def parse(Vendor, Product, CVES):
     if not os.path.exists(productDirPath):
         os.makedirs(productDirPath)
     
+    # Launch formatters
     xmlOutput(Product, CVES)
     jsonOutput(Product, CVES)
 
+###############
+#    Utils    #
+###############
+def write(file_path, txt):
+    with open(file_path, 'w+') as f:
+        f.write(txt)
+
+###############
+#  XML Format #
+###############
 def getChildWithText(name, text):
     child = etree.Element(name)
     child.text = text
@@ -57,6 +64,9 @@ def xmlOutput(Product, CVES):
     root.append(cveList)
     write(os.path.join(productDirPath, Product+".xml"), etree.tostring(root, encoding="unicode", pretty_print=True))
 
+###############
+# JSON Format #
+###############
 def jsonOutput(Product, CVES):
     root = {}
     product = {}
@@ -80,10 +90,3 @@ def jsonOutput(Product, CVES):
     root["product"] = product
     root["cve-list"] = CVEList
     write(os.path.join(productDirPath, Product+".json"), json.dumps(root, indent=4))
-
-
-CVEs = []
-CVEs.append(CVE("0", "Overflow", "2019-02-08", "2021-11-30", "6.8", "None", "remote", "Medium", "Not required", "Partial", "Partial", "Partial"))
-CVEs.append(CVE("1", "Overflow", "2019-02-08", "2021-11-30", "6.8", "None", "remote", "Medium", "Not required", "Partial", "Partial", "Partial"))
-CVEs.append(CVE("2", "Overflow", "2019-02-08", "2021-11-30", "6.8", "None", "remote", "Medium", "Not required", "Partial", "Partial", "Partial"))
-parse("Microsoft","Windows",CVEs)
