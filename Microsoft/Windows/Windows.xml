@@ -1,0 +1,47 @@
+<product>
+  <name>Windows</name>
+  <cve-list>
+    <cve>
+      <id>0</id>
+      <vulnerability_type>Overflow</vulnerability_type>
+      <publish_date>2019-02-08</publish_date>
+      <update_date>2021-11-30</update_date>
+      <score>6.8</score>
+      <gained_access_level>None</gained_access_level>
+      <access>remote</access>
+      <complexity>Medium</complexity>
+      <authentication>Not required</authentication>
+      <confidentiality>Partial</confidentiality>
+      <integrity>Partial</integrity>
+      <availability>Partial</availability>
+    </cve>
+    <cve>
+      <id>1</id>
+      <vulnerability_type>Overflow</vulnerability_type>
+      <publish_date>2019-02-08</publish_date>
+      <update_date>2021-11-30</update_date>
+      <score>6.8</score>
+      <gained_access_level>None</gained_access_level>
+      <access>remote</access>
+      <complexity>Medium</complexity>
+      <authentication>Not required</authentication>
+      <confidentiality>Partial</confidentiality>
+      <integrity>Partial</integrity>
+      <availability>Partial</availability>
+    </cve>
+    <cve>
+      <id>2</id>
+      <vulnerability_type>Overflow</vulnerability_type>
+      <publish_date>2019-02-08</publish_date>
+      <update_date>2021-11-30</update_date>
+      <score>6.8</score>
+      <gained_access_level>None</gained_access_level>
+      <access>remote</access>
+      <complexity>Medium</complexity>
+      <authentication>Not required</authentication>
+      <confidentiality>Partial</confidentiality>
+      <integrity>Partial</integrity>
+      <availability>Partial</availability>
+    </cve>
+  </cve-list>
+</product>

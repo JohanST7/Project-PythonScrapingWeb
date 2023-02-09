@@ -10,22 +10,29 @@ response = requests.get(url)
 
 items = ''
 
+urls = []
+
 if response.ok:
     soup = BeautifulSoup(response.text, 'lxml')
-    items = soup.find_all("table", class_="listtable").find_all("td", class_=None)
-    print(items)
+    items = soup.find("table", class_="listtable")
+    for i in items.find_all("tr"):
+        if len(i.find_all("th")) == 0:
+            #Name
+            print(i.find_all("td")[1].find("a").text)
+            #link
+            print(i.find_all("td")[2].find("a")["href"])
+        
 
+print('------------')
 
+url = 'https://www.cvedetails.com/top-50-products.php'
 
-items.find_all("td", class_=None)
+response = requests.get(url)
 
-news_items = []
-
-for i in items :
-    news_i={}
-    news_i ['title'] = items.title.text
-    news_i ['description'] = items.description.text
-    news_i ['pubdate'] = items.pubdate.text
-    news_items.append(news_i)
-
-df=pd.DataFrame(news_items,columns=['vendor Name','Number of Products','Number of Vulnerabilities'])
+items = ''
+'''
+if response.ok:
+    soup = BeautifulSoup(response.text, 'lxml')
+    items = soup.find("table", class_="listtable")
+    for i in items.find_all("td", class_=None):
+        print(i.text)'''

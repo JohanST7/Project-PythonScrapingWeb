@@ -1,0 +1,49 @@
+{
+    "product": {
+        "name": "Windows"
+    },
+    "cve-list": {
+        "0": {
+            "id": "0",
+            "vulnerability_type": "Overflow",
+            "publish_date": "2019-02-08",
+            "update_date": "2021-11-30",
+            "score": "6.8",
+            "gained_access_level": "None",
+            "access": "remote",
+            "complexity": "Medium",
+            "authentication": "Not required",
+            "confidentiality": "Partial",
+            "integrity": "Partial",
+            "availability": "Partial"
+        },
+        "1": {
+            "id": "1",
+            "vulnerability_type": "Overflow",
+            "publish_date": "2019-02-08",
+            "update_date": "2021-11-30",
+            "score": "6.8",
+            "gained_access_level": "None",
+            "access": "remote",
+            "complexity": "Medium",
+            "authentication": "Not required",
+            "confidentiality": "Partial",
+            "integrity": "Partial",
+            "availability": "Partial"
+        },
+        "2": {
+            "id": "2",
+            "vulnerability_type": "Overflow",
+            "publish_date": "2019-02-08",
+            "update_date": "2021-11-30",
+            "score": "6.8",
+            "gained_access_level": "None",
+            "access": "remote",
+            "complexity": "Medium",
+            "authentication": "Not required",
+            "confidentiality": "Partial",
+            "integrity": "Partial",
+            "availability": "Partial"
+        }
+    }
+}
