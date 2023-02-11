@@ -12,20 +12,38 @@ items = ''
 
 if response.ok:
     soup = BeautifulSoup(response.text, 'lxml')
-    items = soup.find_all("table", class_="listtable").find_all("td", class_=None)
-    print(items)
+    items = soup.find("table", class_="listtable")
+    for i in items.find_all("td", class_=None):
+        print(i.text)
+
+#Scrap la page du vendor Microsoft pour récupérer ses products
+
+url = 'https://www.cvedetails.com/product-list/vendor_id-26/Microsoft.html'
+
+responsep = requests.get(url)
+
+if responsep.ok:
+    soup = BeautifulSoup(responsep.text, 'lxml')
+    product = soup.find("table", class_="listtablecontainer")
+    productb = soup.a(<a class="listtablecontainer" href="/product-list/product_type-/firstchar-/vendor_id-26/page-1/products-by-name.html?sha=5490ab64aaaeac45d7701eff5f1fd2da7c24e1a5&amp;order=1&amp;trc=722" id="link1"> Product Name </a>)
+    
+    for p in product.find_all("td", class_=None):
+        print(p.text)
+    for p in productb.find_all("td", class_=None):
+        print(p.text)
 
 
 
-items.find_all("td", class_=None)
+print('------------')
 
-news_items = []
+url = 'https://www.cvedetails.com/top-50-products.php'
 
-for i in items :
-    news_i={}
-    news_i ['title'] = items.title.text
-    news_i ['description'] = items.description.text
-    news_i ['pubdate'] = items.pubdate.text
-    news_items.append(news_i)
+response = requests.get(url)
 
-df=pd.DataFrame(news_items,columns=['vendor Name','Number of Products','Number of Vulnerabilities'])
+items = ''
+
+if response.ok:
+    soup = BeautifulSoup(response.text, 'lxml')
+    items = soup.find("table", class_="listtable")
+    for i in items.find_all("td", class_=None):
+        print(i.text)
