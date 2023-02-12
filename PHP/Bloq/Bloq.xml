@@ -1,0 +1,21 @@
+<product>
+  <name>Bloq</name>
+  <cve-list>
+    <cve>
+      <id>CVE-2006-6592</id>
+      <vulnerability_type>
+						Exec Code File Inclusion 					</vulnerability_type>
+      <publish_date>2006-12-15</publish_date>
+      <update_date>2018-10-17</update_date>
+      <score>7.5</score>
+      <gained_access_level>None</gained_access_level>
+      <access>Remote</access>
+      <complexity>Low</complexity>
+      <authentication>Not required</authentication>
+      <confidentiality>Partial</confidentiality>
+      <integrity>Partial</integrity>
+      <availability>Partial</availability>
+      <link>https://www.cvedetails.com/cve/CVE-2006-6592/</link>
+    </cve>
+  </cve-list>
+</product>

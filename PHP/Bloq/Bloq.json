@@ -1,0 +1,22 @@
+{
+    "product": {
+        "name": "Bloq"
+    },
+    "cve-list": {
+        "CVE-2006-6592": {
+            "id": "CVE-2006-6592",
+            "vulnerability_type": "\n\t\t\t\t\t\tExec Code File Inclusion \t\t\t\t\t",
+            "publish_date": "2006-12-15",
+            "update_date": "2018-10-17",
+            "score": "7.5",
+            "gained_access_level": "None",
+            "access": "Remote",
+            "complexity": "Low",
+            "authentication": "Not required",
+            "confidentiality": "Partial",
+            "integrity": "Partial",
+            "availability": "Partial",
+            "link": "https://www.cvedetails.com/cve/CVE-2006-6592/"
+        }
+    }
+}
