@@ -1,11 +1,10 @@
-#!/usr/bin/python3
-
 import requests
 from bs4 import BeautifulSoup
 from commons import CVE
 
 def getVendors():
     vendors = []
+    #get page
     url = 'https://www.cvedetails.com/top-50-vendors.php'
     response = requests.get(url)
     if response.ok:
@@ -22,6 +21,7 @@ def getVendors():
 
 def getProducts(vendor):
     products = []
+    #get page
     baseURL = "https://www.cvedetails.com"
     url = baseURL + vendor[1]
     response = requests.get(url)
@@ -39,6 +39,7 @@ def getProducts(vendor):
 
 def getCVE(product):
     cves = []
+    #get page
     baseURL = "https://www.cvedetails.com"
     url = baseURL + product[1]
     response = requests.get(url)
