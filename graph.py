@@ -3,9 +3,6 @@
 import tkinter as tk
 import tkinter.scrolledtext
 import os
-import main
-
-
 
 BACKGROUND_COLOR = "#34495e"
 
